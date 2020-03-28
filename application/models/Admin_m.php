@@ -22,4 +22,13 @@ class Admin_m extends CI_Model {
         return $query;
     }
 
+    public function add($post)
+    {
+        $params['name'] = $post['name'];
+        $params['l_name'] = $post['l_name'];
+        $params['username'] = $post['username'];
+        $params['password'] = sha1($post['password']);
+        $this->db->insert('admin', $params);
+    }
+
 }
